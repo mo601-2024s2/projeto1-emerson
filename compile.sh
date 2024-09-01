@@ -12,3 +12,5 @@ cmake ..
 make
 cd ..
 cd ..
+cd test
+sh compilar.sh

@@ -501,14 +501,14 @@ void Executor::execute_mulhsu(uint8_t rd, uint8_t rs1, uint8_t rs2) {
 void Executor::execute_div(uint8_t rd, uint8_t rs1, uint8_t rs2) {
     int32_t rs1_val = int32_t(cpu_.registers()[rs1]);
     int32_t rs2_val = int32_t(cpu_.registers()[rs2]);
-    cpu_.set_register(rd, rs1_val / rs2_val);
+    cpu_.set_register(rd, rs2_val != 0? rs1_val / rs2_val : 0);
     sprintf(dissasembly,"div     %s, %s, %s", register_names[rd], register_names[rs1], register_names[rs2]);
 }
 
 void Executor::execute_divu(uint8_t rd, uint8_t rs1, uint8_t rs2) {
     uint32_t rs1_val = cpu_.registers()[rs1];
     uint32_t rs2_val = cpu_.registers()[rs2];
-    cpu_.set_register(rd, rs1_val / rs2_val);
+    cpu_.set_register(rd, rs2_val != 0? rs1_val / rs2_val : 0);
     sprintf(dissasembly,"divu    %s, %s, %s", register_names[rd], register_names[rs1], register_names[rs2]);
 }
 
