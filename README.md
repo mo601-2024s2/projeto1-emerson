@@ -23,4 +23,4 @@ Aprendi bastante sobre a codificação binária das instruções RISC-V, princip
 
 
 ## Desempenho
-No teste dhrystone, foram obtidos resultados de 1000~1500 microsegundos por teste, com 665~1000 dhrystones por segundo. Não foi possível executar o teste coremark, dado que ele não compilou na configuração posix por falta de uma implementação da função clock_gettime nas bibliotecas disponíveis para a compilação.
+No teste dhrystone, foram obtidos resultados de 1000\~1500 microsegundos por teste, com 665\~1000 dhrystones por segundo. Não foi possível executar o teste coremark, dado que ele não compilou na configuração posix por falta de uma implementação da função clock_gettime nas bibliotecas disponíveis para a compilação.
