@@ -13,5 +13,4 @@ done
 cd ..
 cd dhrystone
 parametros=$(./../../ElfReader/build/ReadElf dhrystone.x)
-echo "$parametros"
 ./../../Simulador/build/Simulador dhrystone.bin $parametros
