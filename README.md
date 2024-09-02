@@ -10,7 +10,7 @@
 Simulador de processador RISC-V (instruções I e M) escrito em C++ para a disciplina M0601. Simulação funcional de processador de único núcleo com execução em ordem.
 
 ## Ambiente de desenvolvimento
-Foi utilizada a IDE CLion para os arquivos do projeto, juntamente com o compilador CLang. Já para os arquivos escritos para serem executados no simulador foram utilizados um editor de texto e o compilador gcc na versão oferecida pela toolchain RISC-V, montada no conjunto de instruções IMA (como a versão Linux foi montada juntamente, as instruções atômicas foram usadas na geração de código, mesmo que não sejam usadas nem suportadas pelo simulador).
+Foi utilizada a IDE CLion para os arquivos do projeto, juntamente com o compilador CLang, mas o arquivo CMake resultante deve ser independente de um ambiente similar e deve manter como única dependência o próprio CLang. Já para os arquivos escritos para serem executados no simulador foram utilizados um editor de texto e o compilador gcc na versão oferecida pela toolchain RISC-V, montada no conjunto de instruções IMA (como a versão Linux foi montada juntamente, as instruções atômicas foram usadas na geração de código, mesmo que não sejam usadas nem suportadas pelo simulador).
 
 ## Algoritmo de simulação
 O compilador recebe um arquivo binário do tipo simples. O PC é inicializado com um valor dado por linha de comando (extraído do ELF, no caso dos exemplos executados), assim como o GP, que é necessário para alguns truques de endereçamento usados pelo GCC. Uma instrução é tirada do endereço apontado pelo PC na memória simulada (representada como um vetor de bytes), os campos dela são extraídos e salvos numa classe e a instrução passa por uma cascata de funções de interpretação, até chegar numa função de execução, que realiza as mudanças necessárias no PC, escreve um log de execução da instrução e produz o próximo PC. A execução segue até uma instrução inválida ou a chamada de sistema de saída ser executada.
@@ -23,8 +23,4 @@ Aprendi bastante sobre a codificação binária das instruções RISC-V, princip
 
 
 ## Desempenho
-No teste dhrystone, foram obtidos resultados de 1000~1500 microsegundos por teste, com 665~1000 dhrystones por segundo.
-
-Crie seções para cada uma das informações abaixo:
-
-- Desempenho do seu simulador conforme DryStone e CoreMark
+No teste dhrystone, foram obtidos resultados de 1000~1500 microsegundos por teste, com 665~1000 dhrystones por segundo. Não foi possível executar o teste coremark, dado que ele não compilou na configuração posix por falta de uma implementação da função clock_gettime nas bibliotecas disponíveis para a compilação.
