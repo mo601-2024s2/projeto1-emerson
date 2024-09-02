@@ -445,6 +445,11 @@ void Executor::execute_ecall() {
     } else if (cpu_.registers()[17] == 63) {
         int ret_val = read(cpu_.registers()[10], cpu_.memory_.memory.data() + cpu_.registers()[11], cpu_.registers()[12]);
         cpu_.set_register(10, ret_val);
+    } else if (cpu_.registers()[17] == 403) {
+        int ret_val = clock_gettime(cpu_.registers()[10], reinterpret_cast<struct timespec *>(cpu_.memory_.memory.data() + cpu_.registers()[11]));
+        cpu_.set_register(10, ret_val);
+    } else {
+        printf("Syscall desconhecida, número %i\n", cpu_.registers()[17]);
     }
     sprintf(dissasembly, "ecall   ");
 }

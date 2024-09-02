@@ -22,6 +22,8 @@ Os testes iniciais foram feitos utilizando arquivos escritos a mão com uma úni
 Aprendi bastante sobre a codificação binária das instruções RISC-V, principalmente sobre a regularidade dos formatos e sobre o tratamento dos imediatos, assim como sobre a forma como um compilador faz uso dos recursos da arquitetura, principalmente no modo comum de endereçamento de globais usado pelo compilador GCC na plataforma RISC-V. O projeto também foi útil para entender sobre simulação funcional de processadores, no sentido de que esse projeto buscou o modelo mais simples possível do processador para a simulação.
 
 
+## Desempenho
+No teste dhrystone, foram obtidos resultados de 1000~1500 microsegundos por teste, com 665~1000 dhrystones por segundo.
 
 Crie seções para cada uma das informações abaixo:
 

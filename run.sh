@@ -10,3 +10,8 @@ for arquivo in $(find . -type f -name "*.x"); do
    parametros=$(./../../ElfReader/build/ReadElf $exec_file)
    ./../../Simulador/build/Simulador $bin_file $parametros
 done
+cd ..
+cd dhrystone
+parametros=$(./../../ElfReader/build/ReadElf dhrystone.x)
+echo "$parametros"
+./../../Simulador/build/Simulador dhrystone.bin $parametros
